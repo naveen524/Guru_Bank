@@ -8,31 +8,31 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Login_Page {
+public class Gurubank_Login2 {
 	public static WebDriver driver;
 	public WebDriver idriver;
-	public Login_Page(WebDriver rdriver)
+	public Gurubank_Login2(WebDriver rdriver)
 	{
 		idriver=rdriver;
 		PageFactory.initElements(rdriver, this);
 	}
 	@FindBy(name="uid")
-	WebElement txtUserName1;
+	WebElement txtUserName4;
 	@FindBy(name="password")
-	WebElement txtPassword1;
+	WebElement txtPassword4;
 	@FindBy(name="btnLogin")
-	WebElement clickSubmit1;
+	WebElement clickSubmit4;
 	
-	public void setUserName1(String userName1)
+	public void setUserName4(String userName4)
 	{
-		txtUserName1.sendKeys(userName1);
+		txtUserName4.sendKeys(userName4);
 	}
-	public void setPassword1(String Password1)
+	public void setPassword4(String Password4)
 	{
-		txtPassword1.sendKeys(Password1);
+		txtPassword4.sendKeys(Password4);
 	}
-	public void clickSubmit1()
+	public void clickSubmit4()
 	{
-		clickSubmit1.click();
+		clickSubmit4.click();
 	}
 }

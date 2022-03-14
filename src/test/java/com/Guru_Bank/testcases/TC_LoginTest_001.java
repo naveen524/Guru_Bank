@@ -11,6 +11,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -18,7 +19,8 @@ import org.testng.annotations.Test;
 
 import com.Guru_Bank.pageobjectmodel.Facebook_Login;
 import com.Guru_Bank.pageobjectmodel.Flipkart_Login;
-import com.Guru_Bank.pageobjectmodel.Login_Page;
+import com.Guru_Bank.pageobjectmodel.Gurubank_Login;
+import com.Guru_Bank.pageobjectmodel.Gurubank_Login2;
 import com.Guru_Bank.utilities.Flipkart_Utility;
 
 public class TC_LoginTest_001 extends BaseClass {
@@ -27,7 +29,7 @@ public class TC_LoginTest_001 extends BaseClass {
 	public void loginTest() throws InterruptedException, IOException
 	{
 		driver.get(baseURL1);
-		Login_Page lp1 = new Login_Page(driver);
+		Gurubank_Login lp1 = new Gurubank_Login(driver);
 		lp1.setUserName1(userName1);
 		Thread.sleep(2000);
 		lp1.setPassword1(Password1);
@@ -46,9 +48,8 @@ public class TC_LoginTest_001 extends BaseClass {
 		System.out.println(title1);
 		String currenturl1 = driver.getCurrentUrl();
 		System.out.println(currenturl1);
-		
-		
-		
+
+		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 		driver.get(baseURL2);
 		Flipkart_Login lp2 = new Flipkart_Login(driver);
 		driver.navigate().refresh();
@@ -70,8 +71,8 @@ public class TC_LoginTest_001 extends BaseClass {
 		System.out.println(title2);
 		String currenturl2 = driver.getCurrentUrl();
 		System.out.println(currenturl2);
-		
-		
+
+		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 		
 		driver.get(baseURL3);
 		Facebook_Login lp3= new Facebook_Login(driver);
@@ -92,38 +93,160 @@ public class TC_LoginTest_001 extends BaseClass {
 		String title3 = driver.getTitle();
 		System.out.println(title1);
 		String currenturl3 = driver.getCurrentUrl();
-		System.out.println(currenturl1);
-		
-		
-		if(baseURL2.equals(baseURL3))
+		System.out.println(currenturl3);
+
+		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+		driver.get(baseURL4);
+		Gurubank_Login2 lp4 = new Gurubank_Login2(driver);
+		lp4.setUserName4(userName4);
+		Thread.sleep(2000);
+		lp4.setPassword4(Password4);
+		Thread.sleep(2000);
+		lp4.clickSubmit4();
+		Thread.sleep(4000);
+		List<WebElement> alllinks4 = driver.findElements(By.xpath("//a"));
+		int count4 = alllinks1.size();
+		System.out.println(count4);
+		for(int i=0;i<count4;i++)
+		{
+			String text = alllinks4.get(i).getText();
+			System.out.println(text);
+		}
+		String title4 = driver.getTitle();
+		System.out.println(title4);
+		String currenturl4 = driver.getCurrentUrl();
+		System.out.println(currenturl4);
+
+		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+		if(baseURL1.equals(baseURL2))
 		{
 			Assert.assertTrue(true);
-			System.out.println("both urls are equals");
+			System.out.println("Gurubank and flipkart urls are equals");
 		}
 		else {
 			Assert.assertFalse(false);
-			System.out.println("both urls are not equals");
+			System.out.println("Gurubank and flipkart urls are not equals");
+		}
+
+		if(alllinks1.equals(alllinks2))
+		{
+			Assert.assertTrue(true);
+			System.out.println("Gurubank and flipkart links are equals");	
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("Gurubank and flipkart links are not equals");
+		}
+
+		if(title1.equals(title2))
+		{
+			Assert.assertTrue(true);
+			System.out.println("Gurubank and flipkart titles are equals");
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("Gurubank and flipkart titles are not equals");
+		}
+
+		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+		if(baseURL2.equals(baseURL3))
+		{
+			Assert.assertTrue(true);
+			System.out.println("flipkart and facebook urls are equals");
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("flipkart and facebook urls are not equals");
 		}
 
 		if(alllinks2.equals(alllinks3))
 		{
 			Assert.assertTrue(true);
-			System.out.println("both links are equals");	
+			System.out.println("flipkart and facebook links are equals");	
 		}
 		else {
 			Assert.assertFalse(false);
-			System.out.println("both links are not equals");
+			System.out.println("flipkart and facebook links are not equals");
 		}
-	
+
 		if(title2.equals(title3))
 		{
 			Assert.assertTrue(true);
-			System.out.println("both titles are equals");
+			System.out.println("flipkart and facebook titles are equals");
 		}
 		else {
 			Assert.assertFalse(false);
-			System.out.println("both titles are not equals");
+			System.out.println("flipkart and facebook titles are not equals");
 		}
+
+		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+		if(baseURL3.equals(baseURL4))
+		{
+			Assert.assertTrue(true);
+			System.out.println("facebook and Gurubank4 urls are equals");
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("facebook and Gurubank4 urls are not equals");
+		}
+
+		if(alllinks3.equals(alllinks4))
+		{
+			Assert.assertTrue(true);
+			System.out.println("facebook and Gurubank4 links are equals");	
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("facebook and Gurubank4 links are not equals");
+		}
+
+		if(title3.equals(title4))
+		{
+			Assert.assertTrue(true);
+			System.out.println("facebook and Gurubank4 titles are equals");
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("facebook and Gurubank4 titles are not equals");
+		}
+
+		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+		
+		if(baseURL1.equals(baseURL4))
+		{
+			Assert.assertTrue(true);
+			System.out.println("Gurubank and Gurubank2 urls are equals");
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("Gurubank and Gurubank2 urls are not equals");
+		}
+
+		if(alllinks1.equals(alllinks4))
+		{
+			Assert.assertTrue(true);
+			System.out.println("Gurubank and Gurubank2 links are equals");	
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("Gurubank and Gurubank2 links are not equals");
+		}
+
+		if(title1.equals(title4))
+		{
+			Assert.assertTrue(true);
+			System.out.println("Gurubank and Gurubank2 titles are equals");
+		}
+		else {
+			Assert.assertFalse(false);
+			System.out.println("Gurubank and Gurubank2 titles are not equals");
+		}
+
+
 		TakesScreenshot ts=(TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		File destination= new File("./Screenshots/screenshot.png");
