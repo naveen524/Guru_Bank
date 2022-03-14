@@ -1,37 +1,38 @@
 package com.Guru_Bank.pageobjectmodel;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Login_Page {
-	//	User ID :	mngr377966
-	//	Password :	Gurubank@143
-
+	public static WebDriver driver;
 	public WebDriver idriver;
-	 public Login_Page(WebDriver rdriver)
+	public Login_Page(WebDriver rdriver)
 	{
 		idriver=rdriver;
 		PageFactory.initElements(rdriver, this);
 	}
 	@FindBy(name="uid")
-	WebElement txtUserName;
+	WebElement txtUserName1;
 	@FindBy(name="password")
-	WebElement txtPassword;
+	WebElement txtPassword1;
 	@FindBy(name="btnLogin")
-	WebElement clickSubmit;
-
-	public void setUserName(String userName)
+	WebElement clickSubmit1;
+	
+	public void setUserName1(String userName1)
 	{
-		txtUserName.sendKeys(userName);
+		txtUserName1.sendKeys(userName1);
 	}
-	public void setPassword(String Password)
+	public void setPassword1(String Password1)
 	{
-		txtPassword.sendKeys(Password);
+		txtPassword1.sendKeys(Password1);
 	}
-	public void clickSubmit()
+	public void clickSubmit1()
 	{
-		clickSubmit.click();
+		clickSubmit1.click();
 	}
 }

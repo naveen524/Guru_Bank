@@ -5,6 +5,7 @@
     <classes>
       <class name="com.Guru_Bank.testcases.TC_LoginTest_001">
         <methods>
+          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="loginTest"/>
